@@ -18,16 +18,7 @@ namespace SportsForEveryone.Infrastructure
         {
             serviceCollection.AddDbContext<DataDbContext>(options =>
             {
-                options.UseSqlServer(configuration["ConnectionStrings:DefaultConnection"]);
-
-                //options.UseLoggerFactory(LoggerFactory.Create(builder =>
-                //{
-                //    builder.AddConsole();
-                //}));
-
-                //options.EnableDetailedErrors()
-                //.EnableSensitiveDataLogging()
-                //.LogTo(Console.WriteLine, new List<string> { "Database.Command" }, LogLevel.Information);
+                options.UseSqlServer(configuration["ConnectionStrings:DefaultConnection"]);              
             });
 
             serviceCollection.AddScoped<IDataDbContext, DataDbContext>();

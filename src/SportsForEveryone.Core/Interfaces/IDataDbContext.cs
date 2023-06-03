@@ -20,6 +20,6 @@ namespace SportsForEveryone.Core.Interfaces
         public DbSet<Trainer> Trainers { get; set; }
 
         int SaveChanges();
-        //Task<int> SaveChangesAsync();
+
     }
 }
