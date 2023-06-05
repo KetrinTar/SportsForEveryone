@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsForEveryone.Core", "SportsForEveryone.Core\SportsForEveryone.Core.csproj", "{64342B07-0FF9-4D56-8574-05D9EBE42764}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportsForEveryone.Core", "SportsForEveryone.Core\SportsForEveryone.Core.csproj", "{64342B07-0FF9-4D56-8574-05D9EBE42764}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsForEveryone.Infrastructure", "SportsForEveryone.Infrastructure\SportsForEveryone.Infrastructure.csproj", "{77A99A84-F74F-47DF-9321-9DFE319B2E07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportsForEveryone.Infrastructure", "SportsForEveryone.Infrastructure\SportsForEveryone.Infrastructure.csproj", "{77A99A84-F74F-47DF-9321-9DFE319B2E07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsForEveryone.WebUI", "SportsForEveryone.WebUI\SportsForEveryone.WebUI.csproj", "{34510F53-81B1-446E-8058-A693C4CA3F27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportsForEveryone.WebUI", "SportsForEveryone.WebUI\SportsForEveryone.WebUI.csproj", "{34510F53-81B1-446E-8058-A693C4CA3F27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsForEveryone.Application", "SportsForEveryone\SportsForEveryone.Application.csproj", "{6B85C6F5-6369-4D61-B053-D38BB165FE70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{34510F53-81B1-446E-8058-A693C4CA3F27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34510F53-81B1-446E-8058-A693C4CA3F27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34510F53-81B1-446E-8058-A693C4CA3F27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B85C6F5-6369-4D61-B053-D38BB165FE70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B85C6F5-6369-4D61-B053-D38BB165FE70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B85C6F5-6369-4D61-B053-D38BB165FE70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B85C6F5-6369-4D61-B053-D38BB165FE70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
