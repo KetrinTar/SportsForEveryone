@@ -1,11 +1,12 @@
-using SportsForEveryone.Infrastructure;
-using SportsForEveryone.Infrastructure.Data;
+using SportsForEveryone.Infrastructure.Extensions;
+using SportsForEveryone.WebUI.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddStorage(builder.Configuration);
+builder.Services.AddApplicationServices();
 
 var app = builder.Build();
 await app.DatabaseEnsureCreated();

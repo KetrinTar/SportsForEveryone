@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using SportsForEveryone.Core.Interfaces;
 
-namespace SportsForEveryone.Infrastructure
+namespace SportsForEveryone.Infrastructure.Extensions
 {
     public static class RegistrationExtensions
     {
@@ -31,6 +31,8 @@ namespace SportsForEveryone.Infrastructure
             });
 
             serviceCollection.AddScoped<IDataDbContext, DataDbContext>();
+            serviceCollection.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
 }
