@@ -8,22 +8,27 @@ using System.Threading.Tasks;
 
 namespace SportsForEveryone.Infrastructure
 {
-    public class UnitOfWork
+    public class UnitOfWork : IDisposable, IUnitOfWork
     {
         private DataDbContext _context;
-        private GenericRepository<Activity> _activityRepository;
-        private GenericRepository<ActivityType> _activityTypeRepository;
-        private GenericRepository<Administrator> _administratorRepository;
-        private GenericRepository<Club> _clubRepository;
-        private GenericRepository<Post> _postRepository;
-        private GenericRepository<Review> _reviewRepository;
-        private GenericRepository<Trainer> _trainerRepository;
+        private IGenericRepository<Activity> _activityRepository;
+        private IGenericRepository<ActivityType> _activityTypeRepository;
+        private IGenericRepository<Administrator> _administratorRepository;
+        private IGenericRepository<Club> _clubRepository;
+        private IGenericRepository<Post> _postRepository;
+        private IGenericRepository<Review> _reviewRepository;
+        private IGenericRepository<Trainer> _trainerRepository;
 
-        public GenericRepository<Activity> ActivityRepository
+        public UnitOfWork(DataDbContext context)
+        {
+            _context = context;
+        }
+
+        public IGenericRepository<Activity> ActivityRepository
         {
             get
             {
-                if(_activityRepository == null)
+                if (_activityRepository == null)
                 {
                     _activityRepository = new GenericRepository<Activity>(_context);
                 };
@@ -31,11 +36,11 @@ namespace SportsForEveryone.Infrastructure
             }
         }
 
-        public GenericRepository<ActivityType> ActivityTypeRepository
+        public IGenericRepository<ActivityType> ActivityTypeRepository
         {
             get
             {
-                if(_activityTypeRepository == null)
+                if (_activityTypeRepository == null)
                 {
                     _activityTypeRepository = new GenericRepository<ActivityType>(_context);
                 }
@@ -43,11 +48,11 @@ namespace SportsForEveryone.Infrastructure
             }
         }
 
-        public GenericRepository<Administrator> AdministratorRepository
+        public IGenericRepository<Administrator> AdministratorRepository
         {
             get
             {
-                if(_administratorRepository == null)
+                if (_administratorRepository == null)
                 {
                     _administratorRepository = new GenericRepository<Administrator>(_context);
                 }
@@ -55,11 +60,11 @@ namespace SportsForEveryone.Infrastructure
             }
         }
 
-        public GenericRepository<Club> ClubRepository
+        public IGenericRepository<Club> ClubRepository
         {
             get
             {
-                if(_clubRepository == null)
+                if (_clubRepository == null)
                 {
                     _clubRepository = new GenericRepository<Club>(_context);
                 }
@@ -67,11 +72,11 @@ namespace SportsForEveryone.Infrastructure
             }
         }
 
-        public GenericRepository<Post> PostRepository
+        public IGenericRepository<Post> PostRepository
         {
             get
             {
-                if(_postRepository == null)
+                if (_postRepository == null)
                 {
                     _postRepository = new GenericRepository<Post>(_context);
                 }
@@ -79,7 +84,7 @@ namespace SportsForEveryone.Infrastructure
             }
         }
 
-        public GenericRepository<Review> ReviewRepository
+        public IGenericRepository<Review> ReviewRepository
         {
             get
             {
@@ -88,14 +93,14 @@ namespace SportsForEveryone.Infrastructure
                     _reviewRepository = new GenericRepository<Review>(_context);
                 }
                 return _reviewRepository;
-            }           
+            }
         }
 
-        public GenericRepository<Trainer> TrainerRepository
+        public IGenericRepository<Trainer> TrainerRepository
         {
             get
             {
-                if(_trainerRepository == null)
+                if (_trainerRepository == null)
                 {
                     _trainerRepository = new GenericRepository<Trainer>(_context);
                 }
@@ -110,9 +115,11 @@ namespace SportsForEveryone.Infrastructure
 
         private bool disposed = false;
 
-        public virtual void Dispose(bool disposing) 
+        
+
+        public virtual void Dispose(bool disposing)
         {
-            if(!disposed)
+            if (!disposed)
             {
                 if (disposing)
                 {

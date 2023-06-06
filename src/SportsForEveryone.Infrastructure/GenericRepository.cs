@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SportsForEveryone.Infrastructure
 {
-    public class GenericRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
         internal DataDbContext _context;
         internal DbSet<TEntity> _dbSet;
@@ -24,10 +24,10 @@ namespace SportsForEveryone.Infrastructure
         {
             IQueryable<TEntity> query = _dbSet;
 
-            if(filter != null) query = query.Where(filter);
+            if(filter != null) query = query.Where(filter).AsNoTracking();
             foreach(var prop in props.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
             {
-                query = query.Include(prop);
+                query = query.Include(prop).AsNoTracking();
             }
 
             return query.ToList();

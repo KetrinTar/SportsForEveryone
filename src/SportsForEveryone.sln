@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportsForEveryone.Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportsForEveryone.WebUI", "SportsForEveryone.WebUI\SportsForEveryone.WebUI.csproj", "{34510F53-81B1-446E-8058-A693C4CA3F27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsForEveryone.Application", "SportsForEveryone\SportsForEveryone.Application.csproj", "{6B85C6F5-6369-4D61-B053-D38BB165FE70}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsForEveryone.Application", "SportsForEveryone.Application\SportsForEveryone.Application.csproj", "{6B85C6F5-6369-4D61-B053-D38BB165FE70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using SportsForEveryone.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SportsForEveryone.Infrastructure.Data
+namespace SportsForEveryone.Infrastructure.Extensions
 {
     public static class SeedingExtensions
     {
