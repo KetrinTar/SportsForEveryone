@@ -8,7 +8,7 @@ namespace SportsForEveryone.Core.Entities
 {
     public class ActivityType
     {
-        public int ActivityTypeId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

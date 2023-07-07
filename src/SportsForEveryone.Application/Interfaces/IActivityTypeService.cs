@@ -1,4 +1,4 @@
-﻿using SportsForEveryone.Core.Entities;
+﻿using SportsForEveryone.Application.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace SportsForEveryone.Application.Interfaces
 {
     public interface IActivityTypeService
     {
-        void Create(ActivityType activityType);
-        List<ActivityType> GetAll();
+        void Create(ActivityTypeCreationDTO activityTypeCreation);
+        List<ActivityTypeDTO> GetAll();
     }
 }

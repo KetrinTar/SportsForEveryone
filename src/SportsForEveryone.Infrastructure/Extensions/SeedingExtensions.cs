@@ -17,7 +17,7 @@ namespace SportsForEveryone.Infrastructure.Extensions
             {
                 var dbContext = scope.ServiceProvider.GetRequiredService<DataDbContext>();
                 var database = dbContext.Database;
-
+                //await database.EnsureDeletedAsync();
                 await database.EnsureCreatedAsync();
             }
         }

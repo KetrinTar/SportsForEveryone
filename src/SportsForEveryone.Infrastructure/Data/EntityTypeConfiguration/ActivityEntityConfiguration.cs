@@ -12,12 +12,13 @@ namespace SportsForEveryone.Infrastructure.Data.EntityTypeConfiguration
     public class ActivityEntityConfiguration : IEntityTypeConfiguration<Activity>
     {
         public void Configure(EntityTypeBuilder<Activity> builder)
-        {
-            builder.HasKey(c => c.ActivityId);
+        {            
+            builder.HasKey(c => c.Id);
             builder.Property(c => c.Name)
                 .IsRequired();
             builder.Property(c => c.Price) 
                 .IsRequired();
+            builder.ToTable("Activities");
             //builder.Property(c => c.Shedule)
             //    .IsRequired();
 

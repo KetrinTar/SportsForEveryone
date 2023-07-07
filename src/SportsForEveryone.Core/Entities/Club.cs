@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace SportsForEveryone.Core.Entities
 {
-    [Table("Clubs")]
     public class Club
     {
         public int ClubId { get; set; }
@@ -15,12 +14,12 @@ namespace SportsForEveryone.Core.Entities
         public string Address { get; set; }
         public string WebSite { get; set; }
         public string Picture { get; set; }
-        public int Rate { get; set; }
+        public ICollection<Rate> Rates { get; set; }
         public virtual ICollection<Trainer> Trainers { get; set; }
         public List<Activity> Activities { get; set; }
         public ICollection<Review> Reviews { get; set; }
         public ICollection<Post> Posts { get; set; }
-        public Administrator Administrators { get; set; }
+        public ICollection<Administrator> Administrators { get; set; }
         //public virtual City City { get; set; }
     }
 }

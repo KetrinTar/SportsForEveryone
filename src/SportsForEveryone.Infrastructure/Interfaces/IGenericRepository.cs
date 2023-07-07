@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace SportsForEveryone.Infrastructure
+namespace SportsForEveryone.Infrastructure.Interfaces
 {
     public interface IGenericRepository<TEntity> where TEntity : class
     {

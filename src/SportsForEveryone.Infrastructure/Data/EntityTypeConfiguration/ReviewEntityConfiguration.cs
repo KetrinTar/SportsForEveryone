@@ -18,6 +18,7 @@ namespace SportsForEveryone.Infrastructure.Data.EntityTypeConfiguration
                 .IsRequired();
             builder.Property(c => c.Rate)
                 .IsRequired();
+            builder.ToTable("Reviews");
         }
     }
 }

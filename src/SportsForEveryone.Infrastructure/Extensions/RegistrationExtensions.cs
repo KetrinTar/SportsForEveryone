@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using SportsForEveryone.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using SportsForEveryone.Core.Interfaces;
+using SportsForEveryone.Infrastructure.Interfaces;
 
 namespace SportsForEveryone.Infrastructure.Extensions
 {
@@ -30,9 +30,8 @@ namespace SportsForEveryone.Infrastructure.Extensions
                 //.LogTo(Console.WriteLine, new List<string> { "Database.Command" }, LogLevel.Information);
             });
 
-            serviceCollection.AddScoped<IDataDbContext, DataDbContext>();
             serviceCollection.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
+            serviceCollection.AddScoped(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
         }
     }
 }

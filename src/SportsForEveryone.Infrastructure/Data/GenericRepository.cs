@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SportsForEveryone.Infrastructure.Data;
+using SportsForEveryone.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SportsForEveryone.Infrastructure
+namespace SportsForEveryone.Infrastructure.Data
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
@@ -24,8 +24,8 @@ namespace SportsForEveryone.Infrastructure
         {
             IQueryable<TEntity> query = _dbSet;
 
-            if(filter != null) query = query.Where(filter).AsNoTracking();
-            foreach(var prop in props.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+            if (filter != null) query = query.Where(filter).AsNoTracking();
+            foreach (var prop in props.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
             {
                 query = query.Include(prop).AsNoTracking();
             }
