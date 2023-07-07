@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace SportsForEveryone.Core.Entities
 {
-    [Table("Administrators")]
     public class Administrator
     {
         public int AdministratorId { get; set; }
@@ -15,6 +14,7 @@ namespace SportsForEveryone.Core.Entities
         public string Email { get; set; }
         public string Phone { get; set; }
         public int ClubId { get; set; }
+        [ForeignKey("Clubs")]
         public virtual Club Club { get; set; }
     }
 }

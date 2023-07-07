@@ -13,9 +13,10 @@ namespace SportsForEveryone.Infrastructure.Data.EntityTypeConfiguration
     {
         public void Configure(EntityTypeBuilder<ActivityType> builder)
         {
-            builder.HasKey(c => c.ActivityTypeId);
+            builder.HasKey(c => c.Id);
             builder.Property(c => c.Name)
                 .IsRequired();
+            builder.ToTable("ActivityTypes");
         }
     }
 }

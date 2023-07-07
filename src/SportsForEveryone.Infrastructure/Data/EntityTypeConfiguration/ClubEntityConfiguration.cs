@@ -20,9 +20,9 @@ namespace SportsForEveryone.Infrastructure.Data.EntityTypeConfiguration
             builder.Property(c => c.Address)
                 .IsRequired()
                 .HasMaxLength(30);
-            builder.HasOne(c => c.Administrators)
+            builder.HasMany(c => c.Administrators)
                 .WithOne(b => b.Club)
-                .HasForeignKey<Administrator>(d => d.ClubId);
+                .OnDelete(DeleteBehavior.NoAction);
             builder.HasMany(c => c.Trainers)
                 .WithOne(c => c.Club)
                 .OnDelete(DeleteBehavior.NoAction);            
@@ -32,6 +32,10 @@ namespace SportsForEveryone.Infrastructure.Data.EntityTypeConfiguration
             builder.HasMany(c => c.Posts)
                 .WithOne(c => c.Club)
                 .OnDelete(DeleteBehavior.NoAction);
+            builder.HasMany(c => c.Rates)
+                .WithOne(c => c.Club)
+                .OnDelete(DeleteBehavior.NoAction);
+            builder.ToTable("Clubs");
         }
     }
 }

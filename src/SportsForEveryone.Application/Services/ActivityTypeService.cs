@@ -1,6 +1,8 @@
-﻿using SportsForEveryone.Application.Interfaces;
+﻿using AutoMapper;
+using SportsForEveryone.Application.DTOs;
+using SportsForEveryone.Application.Interfaces;
 using SportsForEveryone.Core.Entities;
-using SportsForEveryone.Infrastructure;
+using SportsForEveryone.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,22 +13,35 @@ namespace SportsForEveryone.Application.Services
 {
     public class ActivityTypeService : IActivityTypeService
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWork<ActivityType> _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public ActivityTypeService(IUnitOfWork unitOfWork)
+        public ActivityTypeService(IUnitOfWork<ActivityType> unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
-        public void Create(ActivityType activityType)
-        {;
-            _unitOfWork.ActivityTypeRepository.Add(activityType);
+        public void Create(ActivityTypeCreationDTO activityTypeCreation)
+        {
+            var activityTypes = _mapper.Map<ActivityType>(activityTypeCreation);
+            _unitOfWork.EntityRepository.Add(activityTypes);
             _unitOfWork.Save();
         }
 
-        public List<ActivityType> GetAll()
+        public List<ActivityTypeDTO> GetAll()
         {
-            return _unitOfWork.ActivityTypeRepository.GetAll().ToList();
+            var list = _unitOfWork.EntityRepository.GetAll();
+            var dto = new List<ActivityTypeDTO>();
+            foreach (var activityType in list)
+            {
+                dto.Add(new ActivityTypeDTO
+                {
+                    ActivityTypeId = activityType.Id,
+                    Name = activityType.Name,
+                });
+            }
+            return dto;
         }
     }
 }

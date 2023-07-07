@@ -1,4 +1,4 @@
-﻿using SportsForEveryone.Core.Entities;
+﻿using SportsForEveryone.Application.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ namespace SportsForEveryone.Application.Interfaces
 {
     public interface IClubService
     {
-        void CreateClub(Club club);
-        List<Club> GetAll(Expression<Func<Club, bool>> filter = null, string props = "");
+        void CreateClub(ClubCreationDTO clubCreation);
+        List<ClubDTO> GetAll(Expression<Func<ClubDTO, bool>> filter = null, string props = "");
     }
 }

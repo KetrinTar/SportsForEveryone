@@ -21,6 +21,7 @@ namespace SportsForEveryone.Infrastructure.Data.EntityTypeConfiguration
                 .IsRequired();
             builder.Property(c => c.Email)
                 .IsRequired();
+            builder.ToTable("Administrators");
         }
     }
 }

@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SportsForEveryone.Application.DTOs;
+using SportsForEveryone.Application.Interfaces;
+using SportsForEveryone.Infrastructure;
 using SportsForEveryone.WebUI.Models;
 using System.Diagnostics;
 
@@ -10,11 +13,12 @@ namespace SportsForEveryone.WebUI.Controllers
 
         public HomeController(ILogger<HomeController> logger)
         {
-            _logger = logger;
+            _logger = logger;;
         }
 
         public IActionResult Index()
         {
+
             return View();
         }
 

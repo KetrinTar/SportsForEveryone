@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace SportsForEveryone.Core.Entities
 {
-    [Table("Posts")]
     public class Post
     {
         public int PostId { get; set; }
         public string Summary { get; set; }
         public string Picture { get; set; }
+        [ForeignKey("Clubs")]
         public virtual Club Club { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SportsForEveryone.Core.Entities;
-using SportsForEveryone.Core.Interfaces;
+using SportsForEveryone.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SportsForEveryone.Infrastructure.Data
 {
-    public class DataDbContext : DbContext, IDataDbContext
+    public class DataDbContext : DbContext
     {
         public DataDbContext(DbContextOptions<DataDbContext> options) : base(options)
         {
@@ -24,6 +24,7 @@ namespace SportsForEveryone.Infrastructure.Data
         public DbSet<Post> Posts { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Trainer> Trainers { get; set; }
+        public DbSet<Rate> Rates { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

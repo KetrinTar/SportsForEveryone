@@ -1,0 +1,17 @@
+﻿@model List<ActivityTypeViewModel>
+@{
+    ViewData["Title"] = "Activity Type Page";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    @foreach (var act in Model)
+    {
+        <div>@act.Name</div>
+    }
+</div>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>

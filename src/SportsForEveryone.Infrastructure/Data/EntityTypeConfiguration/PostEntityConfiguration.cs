@@ -16,6 +16,7 @@ namespace SportsForEveryone.Infrastructure.Data.EntityTypeConfiguration
             builder.HasKey(c => c.PostId);
             builder.Property(c => c.Summary)
                 .IsRequired();
+            builder.ToTable("Posts");
         }
     }
 }

@@ -22,6 +22,10 @@ namespace SportsForEveryone.Infrastructure.Data.EntityTypeConfiguration
             builder.HasMany(c => c.Activities)
                 .WithOne(c => c.Trainer)
                 .OnDelete(DeleteBehavior.NoAction);
+            builder.HasMany(c => c.Rates)
+                .WithOne(c => c.Trainer)
+                .OnDelete(DeleteBehavior.NoAction);
+            builder.ToTable("Trainers");
         }
     }
 }
