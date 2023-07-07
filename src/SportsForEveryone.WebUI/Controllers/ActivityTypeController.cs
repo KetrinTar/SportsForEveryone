@@ -33,7 +33,7 @@ namespace SportsForEveryone.WebUI.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create([Bind("ActivityTypeName")] ActivityTypeViewModel activityTypeViewModel)
+        public IActionResult Create([Bind("Name")] ActivityTypeViewModel activityTypeViewModel)
         {
             _activityTypeService.Create(new ActivityTypeCreationDTO { Name = activityTypeViewModel.Name });
             return RedirectToAction("Index");
