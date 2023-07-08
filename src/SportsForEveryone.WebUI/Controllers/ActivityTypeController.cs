@@ -16,7 +16,7 @@ namespace SportsForEveryone.WebUI.Controllers
 
         public IActionResult Index()
         {
-            var act = GetAll();
+            var act = _activityTypeService.GetAll();
             var list = new List<ActivityTypeViewModel>();
             foreach (var item in act)
             {
@@ -33,16 +33,10 @@ namespace SportsForEveryone.WebUI.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create([Bind("Name")] ActivityTypeViewModel activityTypeViewModel)
+        public IActionResult Create(ActivityTypeViewModel activityTypeViewModel)
         {
             _activityTypeService.Create(new ActivityTypeCreationDTO { Name = activityTypeViewModel.Name });
             return RedirectToAction("Index");
-        }
-
-        public List<ActivityTypeDTO> GetAll()
-        {
-            var list = _activityTypeService.GetAll();
-            return list;
         }
     }
 }

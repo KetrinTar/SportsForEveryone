@@ -5,6 +5,7 @@ using SportsForEveryone.Core.Entities;
 using SportsForEveryone.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -29,9 +30,9 @@ namespace SportsForEveryone.Application.Services
         public async void CreateClub(ClubCreationDTO clubCreation)
         {
             var clubs = _mapper.Map<Club>(clubCreation);
-            if(clubCreation.Picture != null)
+            if (clubCreation.Picture != null)
             {
-                clubs.Picture = await _fileService.SaveFile(container, clubCreation.Picture);
+                clubs.Picture = _fileService.SaveFile(container, clubCreation.Picture);
             }
             _unitOfWork.EntityRepository.Add(clubs);
             _unitOfWork.Save();
@@ -48,5 +49,6 @@ namespace SportsForEveryone.Application.Services
             }
             return dto;
         }
+       
     }
 }
