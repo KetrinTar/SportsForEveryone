@@ -1,0 +1,18 @@
+﻿@model List<ClubViewModel>
+@{
+    ViewData["Title"] = "Club Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    
+</div>
+<div>
+    @foreach(var club in Model)
+    {
+        @Html.PartialAsync("ClubPartialView", club).Result
+    }   
+</div>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>

@@ -17,7 +17,7 @@ namespace SportsForEveryone.Application.Helpers
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<string> SaveFile(string container, IFormFile file)
+        public string SaveFile(string container, IFormFile file)
         {
             var extension  = Path.GetExtension(file.FileName);
             var fileName = $"{Guid.NewGuid()}{extension}";
@@ -31,13 +31,13 @@ namespace SportsForEveryone.Application.Helpers
             string route = Path.Combine(folder, fileName);
             using (var ms = new MemoryStream())
             {
-                await file.CopyToAsync(ms);
+                file.CopyTo(ms);
                 var content = ms.ToArray();
-                await System.IO.File.WriteAllBytesAsync(route, content);
+                System.IO.File.WriteAllBytes(route, content);
             }
 
-            var url = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}";
-            var routeForDB = Path.Combine(url, container, fileName).Replace("\\", "/");
+            //var url = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}";
+            var routeForDB = Path.Combine(/*url,*/ container, fileName).Replace("\\", "/");
             return routeForDB;
         }
     }

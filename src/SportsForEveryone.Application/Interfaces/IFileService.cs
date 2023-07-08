@@ -9,6 +9,6 @@ namespace SportsForEveryone.Application.Interfaces
 {
     public interface IFileService
     {
-        Task<string> SaveFile(string container, IFormFile file);
+        string SaveFile(string container, IFormFile file);
     }
 }

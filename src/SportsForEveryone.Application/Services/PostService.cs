@@ -31,7 +31,7 @@ namespace SportsForEveryone.Application.Services
             var posts = _mapper.Map<Post>(postCreation);
             if(postCreation.Picture != null)
             {
-                posts.Picture = await _fileService.SaveFile(container, postCreation.Picture);
+                posts.Picture = _fileService.SaveFile(container, postCreation.Picture);
             }
             _unitOfWork.EntityRepository.Add(posts);
             _unitOfWork.Save();

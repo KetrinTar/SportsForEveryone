@@ -30,7 +30,7 @@ namespace SportsForEveryone.Application.Services
             var trainers = _mapper.Map<Trainer>(trainerCreation);
             if(trainerCreation.Picture != null)
             {
-                trainers.Picture = await _fileService.SaveFile(container, trainerCreation.Picture);
+                trainers.Picture =  _fileService.SaveFile(container, trainerCreation.Picture);
             }
             _unitOfWork.EntityRepository.Add(trainers);
             _unitOfWork.Save();

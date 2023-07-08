@@ -1,3 +1,4 @@
+using Microsoft.Extensions.FileProviders;
 using SportsForEveryone.Infrastructure.Extensions;
 using SportsForEveryone.WebUI.Extensions;
 
@@ -20,11 +21,16 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(Path.Combine(app.Environment.ContentRootPath, "clubs")),
+    RequestPath = "/clubs"
+});
 
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseStaticFiles();
 
 app.MapControllerRoute(
     name: "default",
